@@ -85,7 +85,7 @@ Tabriklaymiz bu mavzudagi barcha testni tugatdingiz 🥳
         k = True
         while k:
             test = get_test(data['topic_id'])
-            s_data = step_data.get(test['id'])
+            s_data = step_data.get(str(test['id']))
             if not s_data:
                 k = False
             await call.message.answer(text=f"{s_data}, {step_data}")
