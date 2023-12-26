@@ -86,9 +86,8 @@ Tabriklaymiz bu mavzudagi barcha testni tugatdingiz 🥳
         while k:
             test = get_test(data['topic_id'])
             s_data = step_data.get(str(test['id']))
-            if not s_data:
+            if s_data is None:
                 k = False
-            await call.message.answer(text=f"{s_data}, {step_data}")
         await call.message.delete()
         await call.message.answer(text=f"""
 📑 Shart: {test['description']}
