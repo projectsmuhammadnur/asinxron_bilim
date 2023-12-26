@@ -82,11 +82,12 @@ Tabriklaymiz bu mavzudagi barcha testni tugatdingiz 🥳
         await state.finish()
         requests.patch(url=f"http://127.0.0.1:8000/telegram-users/update/{user['id']}/", data={'step': json.dumps({})})
     else:
-        while True:
+        k = True
+        while k:
             test = get_test(data['topic_id'])
             s_data = step_data.get(test['id'])
             if not s_data:
-                break
+                k = False
         await call.message.delete()
         await call.message.answer(text=f"""
 📑 Shart: {test['description']}
