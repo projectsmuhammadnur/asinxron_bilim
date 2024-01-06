@@ -7,7 +7,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import CommandStart, Text
 
 from bot.buttons.reply_buttons import main_menu_buttons
-from bot.buttons.text import back_main_menu
+from bot.buttons.text import back_main_menu, end_test
 from bot.dispatcher import dp, bot
 from main import admins
 
@@ -23,7 +23,7 @@ async def back_main_menu_function_2(call: types.CallbackQuery):
     await call.message.answer(text=f"Asosiy menu🏠", reply_markup=await main_menu_buttons())
 
 
-@dp.callback_query_handler(Text(back_main_menu), state="test_performance")
+@dp.callback_query_handler(Text(end_test), state="test_performance")
 async def back_main_menu_function_3(call: types.CallbackQuery, state: FSMContext):
     user = json.loads(requests.get(url=f"http://127.0.0.1:8000/telegram-users/chat_id/{call.from_user.id}/").content)
     t, f = 0, 0

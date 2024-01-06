@@ -3,12 +3,12 @@ import json
 import requests
 from aiogram.types import ReplyKeyboardMarkup
 
-from bot.buttons.text import back_main_menu, adverts, none_advert, forward_advert, performance
+from bot.buttons.text import back_main_menu, adverts, none_advert, forward_advert, performance, cabinet
 
 
 async def main_menu_buttons():
     design = [
-        [performance]
+        [cabinet, performance]
     ]
     return ReplyKeyboardMarkup(keyboard=design, resize_keyboard=True)
 

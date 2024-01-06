@@ -3,7 +3,7 @@ import json
 import requests
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from bot.buttons.text import back_main_menu
+from bot.buttons.text import back_main_menu, end_test
 
 
 async def science_menu_button():
@@ -48,5 +48,5 @@ async def test_performance_menu_button(test: dict):
         design.append([InlineKeyboardButton(text="B", callback_data=f'answer_{test["id"]}_false')])
         design.append([InlineKeyboardButton(text="C", callback_data=f'answer_{test["id"]}_false')])
         design.append([InlineKeyboardButton(text="D", callback_data=f'answer_{test["id"]}_true')])
-    design.append([InlineKeyboardButton(text=back_main_menu, callback_data=back_main_menu)])
+    design.append([InlineKeyboardButton(text=end_test, callback_data=end_test)])
     return InlineKeyboardMarkup(inline_keyboard=design)

@@ -89,7 +89,12 @@ Tabriklaymiz bu mavzudagi barcha testni tugatdingiz 🥳
             if s_data is None:
                 k = False
         await call.message.delete()
+        r = "noto'g'ri ❌"
+        if status == 'true':
+            r = "to'g'ri ✅"
         await call.message.answer(text=f"""
+Javobingiz {r}        
+
 📑 Shart: {test['description']}
 ❓ Savol: {test['question']}
 
